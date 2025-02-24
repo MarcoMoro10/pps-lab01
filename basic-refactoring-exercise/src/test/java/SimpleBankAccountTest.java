@@ -14,6 +14,7 @@ class SimpleBankAccountTest {
     private BankAccount bankAccount;
     private static final int INITIAL_BALANCE = 0;
     private static final int DEPOSIT_AMOUNT = 100;
+    private static final int WITHDRAW_AMOUNT = 70;
 
     @BeforeEach
     void beforeEach(){
@@ -41,8 +42,8 @@ class SimpleBankAccountTest {
 
     @Test
     void testWithdraw() {
-        bankAccount.deposit(accountHolder.getId(), 100);
-        bankAccount.withdraw(accountHolder.getId(), 70);
+        bankAccount.deposit(accountHolder.getId(), DEPOSIT_AMOUNT);
+        bankAccount.withdraw(accountHolder.getId(), WITHDRAW_AMOUNT);
         assertEquals(30, bankAccount.getBalance());
     }
 
