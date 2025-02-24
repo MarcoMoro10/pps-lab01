@@ -19,6 +19,11 @@ public class SmartDoorLockTest {
     @Test
     public void testUnlock() {
         assertEquals(1234, pinLock);
+        lockState = false;
+        assertFalse(lockState);
+    }
+    @Test
+    public void testLock(){
         lockState = true;
         assertTrue(lockState);
     }
