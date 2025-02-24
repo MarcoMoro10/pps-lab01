@@ -17,10 +17,13 @@ class SimpleBankAccountTest {
     private static final int WITHDRAW_AMOUNT = 70;
     private static final int UserID = 2;
     private static final int EXCEPTED_AMOUNT = 100;
+    private static final String ACCOUNT_HOLDER_NAME="Mario";
+    private static final String ACCOUNT_HOLDER_SURNAME="Rossi";
+
 
     @BeforeEach
     void beforeEach(){
-        accountHolder = new AccountHolder("Mario", "Rossi", 1);
+        accountHolder = new AccountHolder(ACCOUNT_HOLDER_NAME, ACCOUNT_HOLDER_SURNAME, 1);
         bankAccount = new SimpleBankAccount(accountHolder, INITIAL_BALANCE);
     }
 
