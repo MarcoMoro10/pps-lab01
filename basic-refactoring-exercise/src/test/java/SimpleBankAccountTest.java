@@ -49,8 +49,9 @@ class SimpleBankAccountTest {
 
     @Test
     void testWrongWithdraw() {
-        bankAccount.deposit(accountHolder.getId(), 100);
-        bankAccount.withdraw(2, 70);
+        final int userId = 2;
+        bankAccount.deposit(accountHolder.getId(), DEPOSIT_AMOUNT);
+        bankAccount.withdraw(userId, WITHDRAW_AMOUNT);
         assertEquals(100, bankAccount.getBalance());
     }
 }
