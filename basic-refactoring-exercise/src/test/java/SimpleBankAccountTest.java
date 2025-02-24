@@ -34,7 +34,7 @@ class SimpleBankAccountTest {
 
     @Test
     void testWrongDeposit() {
-        bankAccount.deposit(accountHolder.getId(), 100);
+        bankAccount.deposit(accountHolder.getId(), DEPOSIT_AMOUNT);
         bankAccount.deposit(2, 50);
         assertEquals(100, bankAccount.getBalance());
     }
