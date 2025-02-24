@@ -59,11 +59,12 @@ class SimpleBankAccountTest {
     @Test
     void testWrongWithdraw() {
         bankAccount.deposit(accountHolder.getId(), DEPOSIT_AMOUNT);
-        bankAccount.withdraw(UserID, WITHDRAW_AMOUNT);
+        bankAccount.withdraw(UserID, WITHDRAW_AMOUNT + FEE);
         assertEquals(EXCEPTED_AMOUNT, bankAccount.getBalance());
     }
     @Test
     void testIsisWithdrawAllowed(){
-
+        bankAccount.deposit(accountHolder.getId(), DEPOSIT_AMOUNT);
+        assertTrue(bankAccount.getBalance() >= WITHDRAW_AMOUNT + FEE );
     }
 }
