@@ -16,6 +16,7 @@ class SimpleBankAccountTest {
     private static final int DEPOSIT_AMOUNT = 100;
     private static final int WITHDRAW_AMOUNT = 70;
     private static final int UserID = 2;
+    private static final int EXCEPTED_AMOUNT = 100;
 
     @BeforeEach
     void beforeEach(){
@@ -34,14 +35,14 @@ class SimpleBankAccountTest {
     @Test
     void testDeposit() {
         bankAccount.deposit(accountHolder.getId(), DEPOSIT_AMOUNT);
-        assertEquals(100, bankAccount.getBalance());
+        assertEquals(EXCEPTED_AMOUNT, bankAccount.getBalance());
     }
 
     @Test
     void testWrongDeposit() {
         bankAccount.deposit(accountHolder.getId(), DEPOSIT_AMOUNT);
         bankAccount.deposit(UserID, 50);
-        assertEquals(100, bankAccount.getBalance());
+        assertEquals(EXCEPTED_AMOUNT, bankAccount.getBalance());
     }
 
     @Test
@@ -55,6 +56,6 @@ class SimpleBankAccountTest {
     void testWrongWithdraw() {
         bankAccount.deposit(accountHolder.getId(), DEPOSIT_AMOUNT);
         bankAccount.withdraw(UserID, WITHDRAW_AMOUNT);
-        assertEquals(100, bankAccount.getBalance());
+        assertEquals(EXCEPTED_AMOUNT, bankAccount.getBalance());
     }
 }
