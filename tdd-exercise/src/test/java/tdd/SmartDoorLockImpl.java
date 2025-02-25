@@ -55,12 +55,12 @@ public class SmartDoorLockImpl implements SmartDoorLock {
 
     @Override
     public int getMaxAttempts() {
-        return 0;
+        return MAX_ATTEMPTS;
     }
 
     @Override
     public int getFailedAttempts() {
-        return 0;
+        return failedAttempts;
     }
 
     @Override
