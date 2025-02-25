@@ -11,7 +11,6 @@ public class SmartDoorLockImpl implements SmartDoorLock {
         this.blocked = false;
     }
     public void setPin(int pin) {
-        System.out.println("valori di this.lockd e blocked" + this.locked + " " + this.blocked);
         if(!this.locked && !this.blocked && this.pin == null)
             this.pin = pin;
         else
@@ -25,7 +24,10 @@ public class SmartDoorLockImpl implements SmartDoorLock {
 
     @Override
     public void lock() {
-
+        if (pin == null) {
+            throw new IllegalStateException("Cannot lock without setting a PIN");
+        }
+        this.locked = true;
     }
 
     @Override
