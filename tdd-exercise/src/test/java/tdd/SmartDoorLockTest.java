@@ -32,7 +32,8 @@ public class SmartDoorLockTest {
     }
     @Test
     public void testLockWithoutPinThrowsException() {
-
+        Exception exception = assertThrows(IllegalStateException.class, () -> smartDoorLock.lock());
+        assertEquals("Cannot lock without setting a PIN", exception.getMessage());
     }
     @Test
     public void testLockWithPinSet() {
