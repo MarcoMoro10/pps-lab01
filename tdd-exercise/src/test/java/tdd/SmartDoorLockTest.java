@@ -68,7 +68,7 @@ public class SmartDoorLockTest {
         assertTrue(smartDoorLock.isBlocked());
     }
     @Test
-    void testCannotUnlockWhenBlocked() {
+    public void testCannotUnlockWhenBlocked() {
         smartDoorLock.setPin(1234);
         smartDoorLock.lock();
         for (int i = 0; i <= smartDoorLock.getMaxAttempts(); i++) {
@@ -76,6 +76,17 @@ public class SmartDoorLockTest {
         }
         smartDoorLock.unlock(1234);
         assertTrue(smartDoorLock.isBlocked());
+    }
+    @Test
+    public void testReset(){
+        smartDoorLock.setPin(1234);
+        smartDoorLock.lock();
+        for(int i=0; i<= smartDoorLock.getMaxAttempts();i++){
+            smartDoorLock.unlock(0000);
+        }
+        assertTrue(smartDoorLock.isBlocked());
+        smartDoorLock.reset();
+        assertFalse(smartDoorLock.isBlocked());
     }
 
 }
