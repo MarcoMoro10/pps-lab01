@@ -58,5 +58,14 @@ public class SmartDoorLockTest {
         assertTrue(smartDoorLock.isLocked());
         assertEquals(1,smartDoorLock.getFailedAttempts());
     }
+    @Test
+    public void testUnlockWithWrongPinMultipleTimes(){
+        smartDoorLock.setPin(1234);
+        smartDoorLock.lock();
+        for(int i=0; i<= smartDoorLock.getMaxAttempts();i++){
+            smartDoorLock.unlock(0000);
+        }
+        assertTrue(smartDoorLock.isBlocked());
+    }
 
 }

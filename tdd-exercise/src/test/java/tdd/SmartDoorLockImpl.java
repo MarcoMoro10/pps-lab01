@@ -27,7 +27,7 @@ public class SmartDoorLockImpl implements SmartDoorLock {
         } else if(blocked){
             return;
         }
-        else if(failedAttempts == MAX_ATTEMPTS) {
+        else if(failedAttempts >= MAX_ATTEMPTS) {
             this.blocked = true;
         }
         else{
