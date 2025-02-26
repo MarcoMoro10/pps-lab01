@@ -5,8 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MinMaxStackImplTest {
+class MinMaxStackImplTest  {
     private MinMaxStackImpl minMaxStack;
+    private static int elementPush = 1;
     @BeforeEach
     void setUp(){
         minMaxStack = new MinMaxStackImpl();
@@ -18,7 +19,8 @@ class MinMaxStackImplTest {
 
     @Test
     public void testPush() {
-
+        minMaxStack.push(elementPush);
+        assertEquals(1, minMaxStack.peek());
     }
 
 }
