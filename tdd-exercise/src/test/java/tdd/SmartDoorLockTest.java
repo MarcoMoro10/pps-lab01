@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SmartDoorLockTest {
 
     private SmartDoorLockImpl smartDoorLock;
+    private static int pinCode = 1234;
     @BeforeEach
     void setUp() {
         smartDoorLock = new SmartDoorLockImpl();
@@ -27,7 +28,7 @@ public class SmartDoorLockTest {
     }
     @Test
     public void testSetPinOnlyWhenNoPinSet(){
-        smartDoorLock.setPin(1234);
+        smartDoorLock.setPin(pinCode);
         assertThrows(IllegalStateException.class, () -> smartDoorLock.setPin(5678));
     }
     @Test
@@ -37,22 +38,22 @@ public class SmartDoorLockTest {
     }
     @Test
     public void testLockWithPinSet() {
-        smartDoorLock.setPin(1234);
+        smartDoorLock.setPin(pinCode);
         smartDoorLock.lock();
         assertTrue(smartDoorLock.isLocked());
     }
     @Test
     public void testUnlock(){
-        smartDoorLock.setPin(1234);
+        smartDoorLock.setPin(pinCode);
         smartDoorLock.lock();
         assertTrue(smartDoorLock.isLocked());
-        smartDoorLock.unlock(1234);
+        smartDoorLock.unlock(pinCode);
         assertFalse(smartDoorLock.isLocked());
 
     }
     @Test
     public void testUnlockWithWrongPin(){
-        smartDoorLock.setPin(1234);
+        smartDoorLock.setPin(pinCode);
         smartDoorLock.lock();
         smartDoorLock.unlock(0000);
         assertTrue(smartDoorLock.isLocked());
@@ -60,7 +61,7 @@ public class SmartDoorLockTest {
     }
     @Test
     public void testUnlockWithWrongPinMultipleTimes(){
-        smartDoorLock.setPin(1234);
+        smartDoorLock.setPin(pinCode);
         smartDoorLock.lock();
         for(int i=0; i<= smartDoorLock.getMaxAttempts();i++){
             smartDoorLock.unlock(0000);
@@ -69,17 +70,17 @@ public class SmartDoorLockTest {
     }
     @Test
     public void testCannotUnlockWhenBlocked() {
-        smartDoorLock.setPin(1234);
+        smartDoorLock.setPin(pinCode);
         smartDoorLock.lock();
         for (int i = 0; i <= smartDoorLock.getMaxAttempts(); i++) {
             smartDoorLock.unlock(0000);
         }
-        smartDoorLock.unlock(1234);
+        smartDoorLock.unlock(pinCode);
         assertTrue(smartDoorLock.isBlocked());
     }
     @Test
     public void testReset(){
-        smartDoorLock.setPin(1234);
+        smartDoorLock.setPin(pinCode);
         smartDoorLock.lock();
         for(int i=0; i<= smartDoorLock.getMaxAttempts();i++){
             smartDoorLock.unlock(0000);

@@ -16,5 +16,9 @@ class MinMaxStackImplTest {
         assertTrue(true);
     }
 
+    @Test
+    public void testPush() {
+
+    }
 
 }
