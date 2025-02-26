@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MinMaxStackImplTest  {
     private MinMaxStackImpl minMaxStack;
-    private static int elementPush = 1;
+    private static int firstElementPush = 1;
+    private static int secondElementPush = 2;
+    private static int thirdElementPush = 3;
     @BeforeEach
     void setUp(){
         minMaxStack = new MinMaxStackImpl();
@@ -19,50 +21,50 @@ class MinMaxStackImplTest  {
 
     @Test
     public void testPush() {
-        minMaxStack.push(elementPush);
+        minMaxStack.push(firstElementPush);
         assertEquals(1, minMaxStack.peek());
     }
     @Test
     public void testPop() {
-        minMaxStack.push(elementPush);
+        minMaxStack.push(firstElementPush);
         assertEquals(1,minMaxStack.pop());
     }
     @Test
     public void testPeek() {
-        minMaxStack.push(elementPush);
-        minMaxStack.push(2);
-        minMaxStack.push(3);
+        minMaxStack.push(firstElementPush);
+        minMaxStack.push(secondElementPush);
+        minMaxStack.push(thirdElementPush);
         assertEquals(3,minMaxStack.peek());
     }
     @Test
     public void testGetMin() {
-        minMaxStack.push(2);
-        minMaxStack.push(3);
-        minMaxStack.push(elementPush);
+        minMaxStack.push(secondElementPush);
+        minMaxStack.push(thirdElementPush);
+        minMaxStack.push(firstElementPush);
         assertEquals(1,minMaxStack.getMin());
         assertEquals(1,minMaxStack.pop());
         assertEquals(2,minMaxStack.getMin());
     }
     @Test
     public void testGetMax() {
-        minMaxStack.push(elementPush);
-        minMaxStack.push(2);
-        minMaxStack.push(3);
+        minMaxStack.push(firstElementPush);
+        minMaxStack.push(secondElementPush);
+        minMaxStack.push(thirdElementPush);
         assertEquals(3, minMaxStack.getMax());
         assertEquals(3, minMaxStack.pop());
         assertEquals(2, minMaxStack.getMax());
     }
     @Test
     public void testIsEmpty(){
-        minMaxStack.push(elementPush);
+        minMaxStack.push(firstElementPush);
         assertFalse(minMaxStack.isEmpty());
         assertEquals(1,minMaxStack.pop());
         assertTrue(minMaxStack.isEmpty());
     }
     @Test
     public void testSize(){
-        minMaxStack.push(elementPush);
-        minMaxStack.push(2);
+        minMaxStack.push(firstElementPush);
+        minMaxStack.push(secondElementPush);
         assertEquals(2, minMaxStack.size());
     }
     @Test
