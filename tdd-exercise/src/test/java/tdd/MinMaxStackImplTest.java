@@ -52,5 +52,17 @@ class MinMaxStackImplTest  {
         assertEquals(3, minMaxStack.pop());
         assertEquals(2, minMaxStack.getMax());
     }
-
+    @Test
+    public void testIsEmpty(){
+        minMaxStack.push(elementPush);
+        assertFalse(minMaxStack.isEmpty());
+        assertEquals(1,minMaxStack.pop());
+        assertTrue(minMaxStack.isEmpty());
+    }
+    @Test
+    public void testSize(){
+        minMaxStack.push(elementPush);
+        minMaxStack.push(2);
+        assertEquals(2, minMaxStack.size());
+    }
 }
