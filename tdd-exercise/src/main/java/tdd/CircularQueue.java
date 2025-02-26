@@ -20,5 +20,4 @@ public interface CircularQueue {
     int size();
     boolean isFull();
     boolean isEmpty();
-    int capacity();
 }

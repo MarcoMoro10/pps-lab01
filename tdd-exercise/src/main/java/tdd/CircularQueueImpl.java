@@ -60,8 +60,4 @@ public class CircularQueueImpl implements CircularQueue {
         return this.size == 0;
     }
 
-    @Override
-    public int capacity() {
-        return DEFAULT_CAPACITY;
-    }
 }
