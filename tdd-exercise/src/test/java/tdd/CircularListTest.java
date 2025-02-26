@@ -61,4 +61,14 @@ public class CircularListTest {
         assertEquals(thirdValue, circularQueue.dequeue());
         assertEquals(fourthValue, circularQueue.dequeue());
     }
+    @Test
+    public void testSize(){
+        assertEquals(0, circularQueue.size());
+        circularQueue.enqueue(firstValue);
+        circularQueue.enqueue(secondValue);
+        assertEquals(2, circularQueue.size());
+        circularQueue.dequeue();
+        assertEquals(1, circularQueue.size());
+
+    }
 }
