@@ -40,7 +40,7 @@ public class CircularQueueImpl implements CircularQueue {
     @Override
     public int peek() {
         if(isEmpty()){
-            return -1;
+            throw new IllegalStateException("Queue is empty");
         }
         return queue[head];
     }
@@ -57,7 +57,7 @@ public class CircularQueueImpl implements CircularQueue {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return this.size == 0;
     }
 
     @Override

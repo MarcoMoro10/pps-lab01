@@ -32,4 +32,10 @@ public class CircularListTest {
         circularQueue.enqueue(secondValue);
         assertEquals(firstValue, circularQueue.dequeue());
     }
+    @Test
+    public void testPeek() {
+        circularQueue.enqueue(firstValue);
+        circularQueue.enqueue(secondValue);
+        assertEquals(firstValue, circularQueue.peek());
+    }
 }
