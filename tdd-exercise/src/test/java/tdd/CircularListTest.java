@@ -13,6 +13,7 @@ public class CircularListTest {
     private CircularQueueImpl circularQueue;
     private static int firstValue = 5;
     private static int secondValue = 7;
+    private static int thirdValue = 9;
     @BeforeEach
     void setUp() {
         circularQueue = new CircularQueueImpl();
@@ -41,5 +42,13 @@ public class CircularListTest {
     @Test
     public void testIsEmpty() {
         assertTrue(circularQueue.isEmpty());
+    }
+    @Test
+    public void testIsFull() {
+        circularQueue.enqueue(firstValue);
+        circularQueue.enqueue(secondValue);
+        circularQueue.enqueue(thirdValue);
+        assertTrue(circularQueue.isFull());
+
     }
 }
