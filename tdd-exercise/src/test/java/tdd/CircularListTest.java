@@ -38,4 +38,8 @@ public class CircularListTest {
         circularQueue.enqueue(secondValue);
         assertEquals(firstValue, circularQueue.peek());
     }
+    @Test
+    public void testIsEmpty() {
+        assertTrue(circularQueue.isEmpty());
+    }
 }
