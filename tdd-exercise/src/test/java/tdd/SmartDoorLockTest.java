@@ -10,6 +10,7 @@ public class SmartDoorLockTest {
 
     private SmartDoorLockImpl smartDoorLock;
     private static int pinCode = 1234;
+    private static int WrongCode = 0000;
     @BeforeEach
     void setUp() {
         smartDoorLock = new SmartDoorLockImpl();
@@ -55,7 +56,7 @@ public class SmartDoorLockTest {
     public void testUnlockWithWrongPin(){
         smartDoorLock.setPin(pinCode);
         smartDoorLock.lock();
-        smartDoorLock.unlock(0000);
+        smartDoorLock.unlock(WrongCode);
         assertTrue(smartDoorLock.isLocked());
         assertEquals(1,smartDoorLock.getFailedAttempts());
     }
@@ -64,7 +65,7 @@ public class SmartDoorLockTest {
         smartDoorLock.setPin(pinCode);
         smartDoorLock.lock();
         for(int i=0; i<= smartDoorLock.getMaxAttempts();i++){
-            smartDoorLock.unlock(0000);
+            smartDoorLock.unlock(WrongCode);
         }
         assertTrue(smartDoorLock.isBlocked());
     }
@@ -73,7 +74,7 @@ public class SmartDoorLockTest {
         smartDoorLock.setPin(pinCode);
         smartDoorLock.lock();
         for (int i = 0; i <= smartDoorLock.getMaxAttempts(); i++) {
-            smartDoorLock.unlock(0000);
+            smartDoorLock.unlock(WrongCode);
         }
         smartDoorLock.unlock(pinCode);
         assertTrue(smartDoorLock.isBlocked());
@@ -83,7 +84,7 @@ public class SmartDoorLockTest {
         smartDoorLock.setPin(pinCode);
         smartDoorLock.lock();
         for(int i=0; i<= smartDoorLock.getMaxAttempts();i++){
-            smartDoorLock.unlock(0000);
+            smartDoorLock.unlock(WrongCode);
         }
         assertTrue(smartDoorLock.isBlocked());
         smartDoorLock.reset();
