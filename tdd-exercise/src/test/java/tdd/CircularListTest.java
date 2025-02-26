@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CircularListTest {
     private CircularQueueImpl circularQueue;
     private static int firstValue = 5;
+    private static int secondValue = 7;
     @BeforeEach
     void setUp() {
         circularQueue = new CircularQueueImpl();
@@ -24,5 +25,11 @@ public class CircularListTest {
     public void testEnqueue() {
         circularQueue.enqueue(firstValue);
         assertEquals(5, circularQueue.peek());
+    }
+    @Test
+    public void testDequeue() {
+        circularQueue.enqueue(firstValue);
+        circularQueue.enqueue(secondValue);
+        assertEquals(firstValue, circularQueue.dequeue());
     }
 }

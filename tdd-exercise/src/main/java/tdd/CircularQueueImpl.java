@@ -26,7 +26,15 @@ public class CircularQueueImpl implements CircularQueue {
 
     @Override
     public int dequeue() {
-        return 0;
+        if(isEmpty()){
+            throw new IllegalStateException("Queue is empty");
+        }
+        else {
+            int value = queue[head];
+            head = (head + 1) % DEFAULT_CAPACITY;
+            size--;
+            return value;
+        }
     }
 
     @Override
