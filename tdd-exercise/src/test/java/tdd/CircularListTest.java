@@ -14,6 +14,7 @@ public class CircularListTest {
     private static int firstValue = 5;
     private static int secondValue = 7;
     private static int thirdValue = 9;
+    private static int fourthValue = 8;
     @BeforeEach
     void setUp() {
         circularQueue = new CircularQueueImpl();
@@ -49,6 +50,15 @@ public class CircularListTest {
         circularQueue.enqueue(secondValue);
         circularQueue.enqueue(thirdValue);
         assertTrue(circularQueue.isFull());
-
+    }
+    @Test
+    public void testOverWrite(){
+        circularQueue.enqueue(firstValue);
+        circularQueue.enqueue(secondValue);
+        circularQueue.enqueue(thirdValue);
+        circularQueue.enqueue(fourthValue);
+        assertEquals(secondValue, circularQueue.dequeue());
+        assertEquals(thirdValue, circularQueue.dequeue());
+        assertEquals(fourthValue, circularQueue.dequeue());
     }
 }
