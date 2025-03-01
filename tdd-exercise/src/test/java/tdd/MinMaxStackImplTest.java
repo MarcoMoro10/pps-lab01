@@ -10,6 +10,11 @@ class MinMaxStackImplTest  {
     private static int firstElementPush = 1;
     private static int secondElementPush = 2;
     private static int thirdElementPush = 3;
+    private static int firstExceptedValue= 1;
+    private static int secondExceptedValue= 2;
+    private static int thirdExceptedValue= 3;
+
+
     @BeforeEach
     void setUp(){
         minMaxStack = new MinMaxStackImpl();
@@ -22,50 +27,50 @@ class MinMaxStackImplTest  {
     @Test
     public void testPush() {
         minMaxStack.push(firstElementPush);
-        assertEquals(1, minMaxStack.peek());
+        assertEquals(firstExceptedValue, minMaxStack.peek());
     }
     @Test
     public void testPop() {
         minMaxStack.push(firstElementPush);
-        assertEquals(1,minMaxStack.pop());
+        assertEquals(firstExceptedValue,minMaxStack.pop());
     }
     @Test
     public void testPeek() {
         minMaxStack.push(firstElementPush);
         minMaxStack.push(secondElementPush);
         minMaxStack.push(thirdElementPush);
-        assertEquals(3,minMaxStack.peek());
+        assertEquals(thirdExceptedValue,minMaxStack.peek());
     }
     @Test
     public void testGetMin() {
         minMaxStack.push(secondElementPush);
         minMaxStack.push(thirdElementPush);
         minMaxStack.push(firstElementPush);
-        assertEquals(1,minMaxStack.getMin());
-        assertEquals(1,minMaxStack.pop());
-        assertEquals(2,minMaxStack.getMin());
+        assertEquals(firstExceptedValue,minMaxStack.getMin());
+        assertEquals(firstExceptedValue,minMaxStack.pop());
+        assertEquals(secondExceptedValue,minMaxStack.getMin());
     }
     @Test
     public void testGetMax() {
         minMaxStack.push(firstElementPush);
         minMaxStack.push(secondElementPush);
         minMaxStack.push(thirdElementPush);
-        assertEquals(3, minMaxStack.getMax());
-        assertEquals(3, minMaxStack.pop());
-        assertEquals(2, minMaxStack.getMax());
+        assertEquals(thirdExceptedValue, minMaxStack.getMax());
+        assertEquals(thirdExceptedValue, minMaxStack.pop());
+        assertEquals(secondExceptedValue, minMaxStack.getMax());
     }
     @Test
     public void testIsEmpty(){
         minMaxStack.push(firstElementPush);
         assertFalse(minMaxStack.isEmpty());
-        assertEquals(1,minMaxStack.pop());
+        assertEquals(firstExceptedValue,minMaxStack.pop());
         assertTrue(minMaxStack.isEmpty());
     }
     @Test
     public void testSize(){
         minMaxStack.push(firstElementPush);
         minMaxStack.push(secondElementPush);
-        assertEquals(2, minMaxStack.size());
+        assertEquals(secondExceptedValue, minMaxStack.size());
     }
     @Test
     public void testPopWithEmptyStack(){
