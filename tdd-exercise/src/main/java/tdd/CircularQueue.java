@@ -14,10 +14,16 @@ package tdd;
  *   - Refactor
  */
 public interface CircularQueue {
+    //insert value in the queue
     void enqueue(int value);
+    // remove value from the queue
     int dequeue();
+    // head element of the queue
     int peek();
+    // size of queue
     int size();
+    // check if the queue is full
     boolean isFull();
+    // check if the queue is full
     boolean isEmpty();
 }
