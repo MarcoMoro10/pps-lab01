@@ -15,6 +15,12 @@ public class CircularListTest {
     private static int secondValue = 7;
     private static int thirdValue = 9;
     private static int fourthValue = 8;
+    private static int firstValueExecpeted =5;
+    private static int initialSize =0;
+    private static int twoElmentsSize =2;
+    private static int oneElementSize =1;
+
+
     @BeforeEach
     void setUp() {
         circularQueue = new CircularQueueImpl();
@@ -26,7 +32,7 @@ public class CircularListTest {
     @Test
     public void testEnqueue() {
         circularQueue.enqueue(firstValue);
-        assertEquals(5, circularQueue.peek());
+        assertEquals(firstValueExecpeted, circularQueue.peek());
     }
     @Test
     public void testDequeue() {
@@ -63,12 +69,12 @@ public class CircularListTest {
     }
     @Test
     public void testSize(){
-        assertEquals(0, circularQueue.size());
+        assertEquals(initialSize, circularQueue.size());
         circularQueue.enqueue(firstValue);
         circularQueue.enqueue(secondValue);
-        assertEquals(2, circularQueue.size());
+        assertEquals(twoElmentsSize, circularQueue.size());
         circularQueue.dequeue();
-        assertEquals(1, circularQueue.size());
+        assertEquals(oneElementSize, circularQueue.size());
     }
    @Test
     public void testDequeueEmptyQueueThrowsException(){
