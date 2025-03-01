@@ -30,7 +30,7 @@ public class SmartDoorLockTest {
     @Test
     public void testSetPinOnlyWhenNoPinSet(){
         smartDoorLock.setPin(pinCode);
-        assertThrows(IllegalStateException.class, () -> smartDoorLock.setPin(5678));
+        assertThrows(IllegalStateException.class, () -> smartDoorLock.setPin(WrongCode));
     }
     @Test
     public void testLockWithoutPinThrowsException() {
